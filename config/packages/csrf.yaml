@@ -1,4 +1,5 @@
-# Enable stateless CSRF protection for forms and logins/logouts
+# CSRF « stateless » (cookie + en-tête) pour les formulaires Symfony (token_id: submit, compatible Turbo).
+# Le login (token « authenticate ») reste sur le gestionnaire session : plus fiable après clone / premier POST.
 framework:
     form:
         csrf_protection:
@@ -7,5 +8,3 @@ framework:
     csrf_protection:
         stateless_token_ids:
             - submit
-            - authenticate
-            - logout
