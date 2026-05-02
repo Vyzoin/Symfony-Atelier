@@ -1,9 +1,8 @@
-
 ###> symfony/framework-bundle ###
 /.env.local
 /.env.local.php
 /.env.*.local
-/config/secrets/prod/prod.decrypt.private.php
+/config/secrets/*/prod.decrypt.private.php
 /public/bundles/
 /var/
 /vendor/
@@ -12,6 +11,7 @@
 ###> phpunit/phpunit ###
 /phpunit.xml
 /.phpunit.cache/
+.phpunit.result.cache
 ###< phpunit/phpunit ###
 
 ###> symfony/asset-mapper ###
@@ -23,3 +23,34 @@
 /.php-cs-fixer.php
 /.php-cs-fixer.cache
 ###< friendsofphp/php-cs-fixer ###
+
+###> Build / coverage / caches hors vendors ###
+coverage/
+*.coverage
+htmlcov/
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+###< Build / coverage / caches hors vendors ###
+
+###> Composer (ne jamais versionner les secrets prive) ###
+/auth.json
+###< Composer ###
+
+###> IDE & OS ###
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+###< IDE & OS ###
