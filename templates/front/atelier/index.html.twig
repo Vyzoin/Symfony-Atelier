@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ateliers publics{% endblock %}
+
+{% block body %}
+    <h1>Ateliers publics</h1>
+    {% for atelier in ateliers %}
+        <article style="border:1px solid #ccc; margin-bottom:.75rem; padding:.75rem;">
+            <h3>{{ atelier.title }}</h3>
+            <p>{{ atelier.description|u.truncate(160, '...') }}</p>
+            <a href="{{ path('front_ateliers_show', {id: atelier.id}) }}">Voir detail</a>
+        </article>
+    {% else %}
+        <p>Aucun atelier disponible.</p>
+    {% endfor %}
+{% endblock %}

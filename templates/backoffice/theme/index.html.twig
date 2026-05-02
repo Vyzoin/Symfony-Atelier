@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Themes{% endblock %}
+
+{% block body %}
+    <h1>Themes</h1>
+    <a href="{{ path('backoffice_themes_new') }}">Nouveau theme</a>
+    <ul>
+        {% for theme in themes %}
+            <li>
+                {{ theme.name }}
+                <a href="{{ path('backoffice_themes_edit', {id: theme.id}) }}">Modifier</a>
+                <form method="post" action="{{ path('backoffice_themes_delete', {id: theme.id}) }}" style="display:inline;">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete_theme_' ~ theme.id) }}">
+                    <button type="submit">Supprimer</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

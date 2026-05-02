@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+    <h1>Inscription a une session</h1>
+    <p>Session du {{ session.date ? session.date|date('Y-m-d H:i') : '-' }}</p>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit">Valider inscription</button>
+    {{ form_end(form) }}
+{% endblock %}

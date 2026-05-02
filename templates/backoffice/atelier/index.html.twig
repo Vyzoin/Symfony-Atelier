@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Backoffice ateliers{% endblock %}
+
+{% block body %}
+    <h1>Ateliers</h1>
+    <a href="{{ path('backoffice_ateliers_new') }}">Nouvel atelier</a>
+    <ul>
+        {% for atelier in ateliers %}
+            <li>
+                {{ atelier.title }}
+                <a href="{{ path('backoffice_ateliers_edit', {id: atelier.id}) }}">Modifier</a>
+                <form method="post" action="{{ path('backoffice_ateliers_delete', {id: atelier.id}) }}" style="display:inline;">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete_atelier_' ~ atelier.id) }}">
+                    <button type="submit">Supprimer</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

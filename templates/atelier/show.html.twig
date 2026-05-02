@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ atelier.title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ atelier.title }}</h1>
+    <p>{{ atelier.description }}</p>
+    <ul>
+        <li>Duree : {{ atelier.dureeMinutes }} minutes</li>
+        <li>Capacite : {{ atelier.capacite }}</li>
+        <li>Status : {{ atelier.status }}</li>
+    </ul>
+{% endblock %}

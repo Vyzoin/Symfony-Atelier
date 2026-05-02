@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ atelier.title }}{% endblock %}
+
+{% block body %}
+    <h1>{{ atelier.title }}</h1>
+    <p>{{ atelier.description }}</p>
+    <p>Theme : {{ atelier.theme ? atelier.theme.name : 'N/A' }}</p>
+    <p>Intervenant : {{ atelier.intervenant ? atelier.intervenant.fullName : 'N/A' }}</p>
+
+    <h2>Sessions</h2>
+    <ul>
+        {% for session in atelier.sessions %}
+            <li>
+                {{ session.date ? session.date|date('Y-m-d H:i') : '-' }} ({{ session.capacite }} places)
+                - <a href="{{ path('front_inscription_new', {id: session.id}) }}">S'inscrire</a>
+            </li>
+        {% else %}
+            <li>Aucune session.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

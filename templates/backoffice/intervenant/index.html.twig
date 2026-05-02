@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Intervenants{% endblock %}
+
+{% block body %}
+    <h1>Intervenants</h1>
+    <a href="{{ path('backoffice_intervenants_new') }}">Nouvel intervenant</a>
+    <ul>
+        {% for intervenant in intervenants %}
+            <li>
+                {{ intervenant.fullName }}
+                <a href="{{ path('backoffice_intervenants_edit', {id: intervenant.id}) }}">Modifier</a>
+                <form method="post" action="{{ path('backoffice_intervenants_delete', {id: intervenant.id}) }}" style="display:inline;">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete_intervenant_' ~ intervenant.id) }}">
+                    <button type="submit">Supprimer</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

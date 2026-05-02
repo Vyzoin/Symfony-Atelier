@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ateliers{% endblock %}
+
+{% block body %}
+    <h1>Liste des ateliers</h1>
+    <div style="display:grid; gap: .75rem; max-width: 800px;">
+        {% for atelier in ateliers %}
+            {% include 'atelier/_card.html.twig' with { atelier: atelier } only %}
+        {% else %}
+            <p>Aucun atelier disponible.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

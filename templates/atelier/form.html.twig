@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ is_edit ? 'Modifier atelier' : 'Nouveau atelier' }}{% endblock %}
+
+{% block body %}
+    <h1>{{ is_edit ? 'Modifier un atelier' : 'Creer un atelier' }}</h1>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit">{{ is_edit ? 'Enregistrer' : 'Creer' }}</button>
+    {{ form_end(form) }}
+{% endblock %}

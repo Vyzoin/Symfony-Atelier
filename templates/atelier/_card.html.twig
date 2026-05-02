@@ -1,0 +1,9 @@
+<article style="border:1px solid #ccc; padding: .8rem; border-radius: 6px;">
+    <h3>{{ atelier.title }}</h3>
+    <p>{{ atelier.description|u.truncate(120, '...') }}</p>
+    <p><strong>Duree :</strong> {{ atelier.dureeMinutes }} min - <strong>Capacite :</strong> {{ atelier.capacite }}</p>
+    <a href="{{ path('atelier_show', {id: atelier.id}) }}">Voir le detail</a>
+    {% if is_granted('ATELIER_EDIT', atelier) %}
+        | <a href="{{ path('atelier_edit', {id: atelier.id}) }}">Modifier</a>
+    {% endif %}
+</article>

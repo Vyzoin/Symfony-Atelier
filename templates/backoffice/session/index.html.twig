@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Sessions{% endblock %}
+
+{% block body %}
+    <h1>Sessions</h1>
+    <a href="{{ path('backoffice_sessions_new') }}">Nouvelle session</a>
+    <ul>
+        {% for session in sessions %}
+            <li>
+                {{ session.atelier.title }} - {{ session.date ? session.date|date('Y-m-d H:i') : '-' }} ({{ session.capacite }})
+                <a href="{{ path('backoffice_sessions_edit', {id: session.id}) }}">Modifier</a>
+                <form method="post" action="{{ path('backoffice_sessions_delete', {id: session.id}) }}" style="display:inline;">
+                    <input type="hidden" name="_token" value="{{ csrf_token('delete_session_' ~ session.id) }}">
+                    <button type="submit">Supprimer</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

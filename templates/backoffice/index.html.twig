@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Backoffice{% endblock %}
+
+{% block body %}
+    <h1>Backoffice</h1>
+    <p>Zone reservee aux administrateurs.</p>
+    <ul>
+        <li><a href="{{ path('backoffice_ateliers_index') }}">CRUD ateliers</a></li>
+        <li><a href="{{ path('backoffice_themes_index') }}">CRUD themes</a></li>
+        <li><a href="{{ path('backoffice_intervenants_index') }}">CRUD intervenants</a></li>
+        <li><a href="{{ path('backoffice_sessions_index') }}">CRUD sessions</a></li>
+    </ul>
+{% endblock %}
