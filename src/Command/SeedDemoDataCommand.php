@@ -32,14 +32,14 @@ class SeedDemoDataCommand extends Command
         $io = new SymfonyStyle($input, $output);
 
         $admin = (new User())
-            ->setEmail('admin@example.test')
+            ->setEmail('admin')
             ->setRoles(['ROLE_ADMIN']);
-        $admin->setPassword($this->passwordHasher->hashPassword($admin, 'adminpass'));
+        $admin->setPassword($this->passwordHasher->hashPassword($admin, 'admin'));
 
         $user = (new User())
-            ->setEmail('user@example.test')
+            ->setEmail('participant')
             ->setRoles(['ROLE_USER']);
-        $user->setPassword($this->passwordHasher->hashPassword($user, 'userpass'));
+        $user->setPassword($this->passwordHasher->hashPassword($user, 'participant'));
 
         $theme = (new Theme())->setName('Ecologie urbaine');
         $intervenant = (new Intervenant())->setFullName('Camille Durand');
@@ -61,8 +61,8 @@ class SeedDemoDataCommand extends Command
         $this->entityManager->flush();
 
         $io->success('Donnees de demo inserees.');
-        $io->writeln('Admin: admin@example.test / adminpass');
-        $io->writeln('User: user@example.test / userpass');
+        $io->writeln('Admin: admin / admin');
+        $io->writeln('Participant: participant / participant');
 
         return Command::SUCCESS;
     }
