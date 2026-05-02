@@ -1,4 +1,8 @@
 ###> symfony/framework-bundle ###
+# Fichiers d'environnement locaux (modeles versionnes : *.example)
+/.env
+/.env.dev
+/.env.test
 /.env.local
 /.env.local.php
 /.env.*.local
