@@ -1,0 +1,48 @@
+###> symfony/framework-bundle ###
+# Fichiers .env versionnés volontairement (projet cours / correction).
+/public/bundles/
+/var/
+/vendor/
+###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/.phpunit.cache/
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> symfony/asset-mapper ###
+/public/assets/
+/assets/vendor/
+###< symfony/asset-mapper ###
+
+###> friendsofphp/php-cs-fixer ###
+/.php-cs-fixer.php
+/.php-cs-fixer.cache
+###< friendsofphp/php-cs-fixer ###
+
+###> Build / coverage / caches hors vendors ###
+coverage/
+*.coverage
+htmlcov/
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+###< Build / coverage / caches hors vendors ###
+
+###> IDE & OS ###
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+###< IDE & OS ###
